@@ -273,6 +273,7 @@ class _HyperParameters:
 
     if raw_keys["jax_cache_dir"]:
       compilation_cache.set_cache_dir(os.path.expanduser(raw_keys["jax_cache_dir"]))
+      jax.config.update("jax_debug_log_modules", "jax._src")
 
     if raw_keys["model_name"] == "gpt3-175b":
       _HyperParameters.configure_gpt3_task(raw_keys)
